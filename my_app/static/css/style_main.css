@@ -1,0 +1,35 @@
+body{
+    background-image: url(https://fons.pibig.info/uploads/posts/2023-05/1685156192_fons-pibig-info-p-fon-muzeinii-instagram-32.jpg);
+    background-size: cover;
+}
+
+h1{
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-style: italic;
+    font-size: 40px;
+    color: #003F5F;
+}
+.one {
+    display: flex
+}
+.img1 {
+    height: 240px;
+    width: 190px;
+    margin-left: 165px;
+    margin-top: 285px;
+}
+.img2 {
+    height: 243px;
+    width: 197px;
+    margin-left: 314px;
+    margin-top: 288px;
+}
+
+.img3 {
+    height: 250px;
+    width: 197px;
+    margin-left: 310px;
+    margin-top: 281px;
+}
+
