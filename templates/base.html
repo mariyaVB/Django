@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 {% load static %}
-<title></title>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% block title %}
+    {% endblock title %}
+    <link rel="stylesheet" href="{% static 'css/style_img.css' %}" />
+
 </head>
 <body>
-    {% block base_content %}
+    <h4><a href="..">Назад в галерею</a></h4>
+    <div class="body">
+        {% block base_content %}
 
-    {% endblock base_content %}
-
+        {% endblock base_content %}
+    </div>
 </body>
 </html>

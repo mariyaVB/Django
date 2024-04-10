@@ -1,25 +1,26 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Картина женщины 1</title>
-    <link rel="stylesheet" href="{% static 'css/style_img.css' %}" />
-</head>
-<body>
-    <div>
-        <h4><a href="..">Назад в галерею</a></h4>
-        <h2>Тикунова Ольга</h2>
-        <h3>Картина портрет женщины «На рассвете» написана масляными красками на холсте
-            натянутом на подрамник. Красивый линии лица, загадка в глазах, прозрачные мысли. </h3>
-        <h3>Стоимость картины: 30 000₽</h3>
-        <h3>Об авторе:</h3>
-        <h3>Ольга пишет реалистичную живопись, особенно пейзажи.
-            Картины Ольги нашли свой дом не только в городах России, но и в Канаде, Германии и Китае.</h3>
-    </div>
 
-    <div>
-        <img src="{% static 'img/women1.png' %}">
-    </div>
-</body>
-</html>
+{% block title %}
+    <title>Картина женщины 1</title>
+{% endblock title %}
+
+
+{% block base_content %}
+
+<div>
+    {% for key, value in art_dict.items %}
+        {% if key == 'Автор:' %}
+            <h2>{{key}} {{value}}</h2><br>
+        {% else %}
+            <h3>{{key}} {{value}}</h3><br>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div>
+    <img src="{% static 'images/women1.png' %}">
+</div>
+
+{% endblock base_content %}
+

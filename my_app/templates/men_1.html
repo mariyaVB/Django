@@ -1,25 +1,23 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Картина мужчины 1</title>
-    <link rel="stylesheet" href="{% static 'css/style_img.css' %}" />
-</head>
-<body>
-    <div>
-        <h4><a href="..">Назад в галерею</a></h4>
-        <h2>Феоктистов Вячеслав</h2>
-        <h3>Картина маслом на холсте с изображением городского мужчины, следы от работы,
-            силуэт доброго человека, задумчивость в глазах.</h3>
-        <h3>Стоимость картины: 30 000₽</h3>
-        <h3>Об авторе:</h3>
-        <h3>Вечеслав является членом творческого Союза художников России и Союза художников Подмосковья.
-            Более 20 лет пишет маслом стильные и красивые картины.</h3>
-    </div>
 
-    <div>
-        <img src="{% static 'img/men.png' %}">
-    </div>
-</body>
-</html>
+{% block title %}
+    <title>Картина мужчины 1</title>
+{% endblock title %}
+
+{% block base_content %}
+<div>
+    {% for key, value in art_dict.items %}
+        {% if key == 'Автор:' %}
+            <h2>{{key}} {{value}}</h2><br>
+        {% else %}
+            <h3>{{key}} {{value}}</h3><br>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div>
+    <img src="{% static 'images/men.png' %}">
+</div>
+
+{% endblock base_content %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>
+        {% for name in title %}
+            {{ name }}
+        {% endfor %}
+    </title>
+{% endblock title %}
+
+{% block base_content %}
+<div>
+    {% for key, value in art_dict.items %}
+        {% if key == 'Автор:' %}
+            <h2>{{key}} {{value}}</h2><br>
+        {% else %}
+            <h3>{{key}} {{value}}</h3><br>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div>
+    {% for name in title %}
+        {% if name == 'Картина мужчины 2' %}
+            <img src="{% static 'images/men2.png' %}">
+        {% elif name == 'Картина мужчины 1' %}:
+            <img src="{% static 'images/men.png' %}">
+        {% elif name == 'Картина женщины 1' %}:
+            <img src="{% static 'images/women1.png' %}">
+        {% endif %}
+    {% endfor %}
+
+</div>
+
+{% endblock base_content %}
