@@ -1,5 +1,5 @@
 body{
-    background-image: url(https://fons.pibig.info/uploads/posts/2023-05/1685156192_fons-pibig-info-p-fon-muzeinii-instagram-32.jpg);
+    background-image: url(https://nosinc.com/wp-content/uploads/2015/09/Empty-frames-licensed.jpg);
     background-size: cover;
     font-family: 'Dali Salvador'
 }
@@ -14,30 +14,37 @@ h1{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-style: italic;
     font-size: 50px;
-    color: #003F5F;
+    color: #DEB887;
 }
 
-.one {
+.one, .two {
     display: flex
+    margin: 0;
+}
+
+.two {
+    padding-left: 5%;
 }
 
 .img1 {
-    height: 240px;
-    width: 190px;
-    margin-left: 165px;
-    margin-top: 225px;
+    height: 360px;
+    width: 280px;
+    margin-left: 230px;
 }
 .img2 {
-    height: 243px;
-    width: 197px;
-    margin-left: 314px;
-    margin-top: 229px;
+    height: 360px;
+    width: 280px;
+    margin-left: 107px;
+
 }
 
 .img3 {
-    height: 250px;
-    width: 197px;
-    margin-left: 310px;
-    margin-top: 222px;
+    height: 360px;
+    width: 280px;
+    margin-left: 105px;
+}
+
+a {
+    color: #DEB887;
 }
 

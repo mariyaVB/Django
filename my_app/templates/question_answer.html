@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>
+        Вопросы Ответ
+    </title>
+
+    <style>
+        .row {
+            background-color: rgba(225, 199, 208, 1);
+        }
+
+        .row_bd {
+            width: 80%;
+
+            margin-left: 10%;
+        }
+    </style>
+{% endblock title %}
+
+{% block base_content %}
+    <div class="row_bd">
+        {% for row in question_answer %}
+            <div class="row">
+                <p style="padding-top: 2%">{{ row.question }}</p>
+                <p style="padding-bottom: 2%">{{ row.date_question }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock base_content %}
+
+

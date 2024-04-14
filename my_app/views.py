@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
+from .models import QuestionAnswer
 
 
 # Create your views here.
@@ -53,7 +54,12 @@ def info_art(request, painting_slug):
         return render(request, 'page_404.html', status=404)
 
 
-
+def question_answer(request):
+    result = QuestionAnswer.objects.all()
+    data = {
+        'question_answer': result
+    }
+    return render(request, 'question_answer.html', data, status=200)
 
 
 

@@ -4,19 +4,13 @@ body{
     margin: 0;
 }
 
-.body{
+.body_cls{
     display: flex;
 }
 
 img{
     height: 900px;
     width: 700px;
-}
-
-h4{
-    background-color: #F0F8FF;
-    padding: 20px;
-    margin: 0;
 }
 
 div{
