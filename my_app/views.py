@@ -55,11 +55,18 @@ def info_art(request, painting_slug):
 
 
 def question_answer(request):
-    result = QuestionAnswer.objects.all()
-    data = {
-        'question_answer': result
-    }
-    return render(request, 'question_answer.html', data, status=200)
+    if request.method == 'POST':
+        question_answer_value = request.POST.get('question_answer')
+        QuestionAnswer.objects.create(question=question_answer_value)
+        return HttpResponse(f'''<h2>Ваш вопрос задан.</h2>
+                            <a href = ""><button>Вернуться назад</button></a>''')
+
+    if request.method == 'GET':
+        result = QuestionAnswer.objects.all()
+        data = {
+            'question_answer': result
+        }
+        return render(request, 'question_answer.html', data, status=200)
 
 
 
