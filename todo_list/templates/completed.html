@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Завершенные задачи</title>
+    <link rel="stylesheet" href="{% static 'css/style_main.css' %}" >
+</head>
+<body>
+<a href="/todo/"><input type="submit" value="Назад"></a>
+<div class="box">
+{% for item in completed %}
+    {% if item.status == 'Завершено' %}
+            <div style="background-color: rgba(87, 113, 77, 0.3)">
+                <p>Название задачи: {{ item.title }}</p>
+                <p>Описание: {{ item.text }}</p>
+                <p>Дата создания: {{ item.date_created }}</p>
+                <p>Статус: {{ item.status }}</p>
+                <p>Дата окончания: {{ item.date_updated }}</p>
+            </div>
+        {% endif %}
+{% endfor %}
+</div>
+</body>
+</html>

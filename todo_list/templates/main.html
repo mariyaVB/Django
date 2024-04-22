@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ежедневник</title>
+    <link rel="stylesheet" href="{% static 'css/style_main.css' %}" >
+
+</head>
+<body>
+<div class="box">
+
+    <div style="background-color: rgba(255, 255, 255, 0.4)">
+        <h1>Добавить новую задачу:</h1>
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            {% for failed in add_task_form %}
+                <div>
+                    {{ failed.label_tag }}
+                    {{ failed }}
+                </div>
+
+            {% endfor %}
+
+            <input type="submit" class="add_task">
+        </form>
+    </div>
+
+    <div style="background-color: rgba(255, 255, 255, 0.4)" >
+        <h1>Список задач:</h1>
+        {% for task in todo %}
+        {% if task.status == 'В процессе' %}
+            <div style="background-color: rgba(87, 113, 77, 0.3)" id="{{ task.id }}" >
+                <p>Название задачи: {{ task.title }}</p>
+                <p>Описание: {{ task.text }}</p>
+                <p>Дата создания: {{ task.date_created }}</p>
+                <p>Статус: {{ task.status }}</p>
+                <a href="{{ task.id }}/"><button>Отметить как выполненное</button></a>
+                <a href="edit_task/{{ task.id }}"><button>Редактировать</button></a>
+                <a href="delete_task/{{ task.id }}/"><button>Удалить</button></a>
+            </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div style="background-color: rgba(255, 255, 255, 0.4)" >
+        <h1>Завершенные задачи:</h1>
+        <a href="completed_task/"><button>Посмотреть</button></a>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

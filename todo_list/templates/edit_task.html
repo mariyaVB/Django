@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+    <link rel="stylesheet" href="{% static 'css/style_main.css' %}" >
+</head>
+<body>
+<div class="box">
+    <div  class="redaction">
+    <form method="POST" action="/todo/edit_task/{{ id }}/">
+        {% csrf_token %}
+        <div style="background-color: rgba(87, 113, 77, 0.3)">
+            <h2>Редактировать задачу:</h2>
+            {% for failed in add_task_form %}
+                {{ failed.label_tag }}<br>
+                {{ failed }}<br>
+            {% endfor %}
+        </div>
+
+        <div  class="add_task">
+            <input type="submit" value="Изменить">
+            <a href="/todo/"><input type="submit" value="Назад"></a>
+        </div>
+    </form>
+    </div>
+</div>
+</body>
+</html>
