@@ -1,0 +1,50 @@
+body{
+    background-image: url(https://nosinc.com/wp-content/uploads/2015/09/Empty-frames-licensed.jpg);
+    background-size: cover;
+    font-family: 'Dali Salvador'
+}
+
+@font-face {
+  font-family: 'Dali Salvador';
+  src: url('../fonts/Dali Salvador Cyr.ttf');
+}
+
+h1{
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-style: italic;
+    font-size: 50px;
+    color: #DEB887;
+}
+
+.one, .two {
+    display: flex
+    margin: 0;
+}
+
+.two {
+    padding-left: 5%;
+}
+
+.img1 {
+    height: 360px;
+    width: 280px;
+    margin-left: 230px;
+}
+.img2 {
+    height: 360px;
+    width: 280px;
+    margin-left: 107px;
+
+}
+
+.img3 {
+    height: 360px;
+    width: 280px;
+    margin-left: 105px;
+}
+
+a {
+    color: #DEB887;
+}
+
