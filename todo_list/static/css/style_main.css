@@ -7,7 +7,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 3%;
-    justify-content: center;
+
 }
 
 .box div {
@@ -24,7 +24,16 @@ textarea .edit_task {
 }
 
 .redaction {
-    grid-column: 2 / span 1;
-    grid-row: 2 / 3;
-
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 250px 400px 250px;
 }
+
+.redaction>div {
+    padding: 5%;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    justify-self: center;
+    align-self: center;
+}
+

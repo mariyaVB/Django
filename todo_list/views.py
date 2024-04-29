@@ -7,17 +7,23 @@ from todo_list.forms import AddTaskForm
 
 
 def task(request):
+    todo = Task.objects.all()
+    result = {
+        'todo': todo,
+        'add_task_form': AddTaskForm(),
+    }
     if request.method == 'GET':
-        todo = Task.objects.all()
-        result = {
-            'todo': todo,
-            'add_task_form': AddTaskForm(),
-        }
         return render(request, 'main.html', result)
 
     if request.method == 'POST':
-        AddTaskForm(request.POST).save()
-        return redirect('/todo/')
+        form = AddTaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/todo/')
+
+        form.add_error(None, 'Ошибка в создании задачи')
+        result['add_task_form'] = form
+        return render(request, 'main.html', result)
 
 
 def status(request, id_task):
@@ -30,20 +36,25 @@ def status(request, id_task):
 
 def edit_task(request, id_task):
     edit_todo = Task.objects.get(id=id_task)
+    result = {
+        'id': edit_todo.id,
+        'add_task_form': AddTaskForm(instance=edit_todo),
+    }
+
     if request.method == 'GET':
-        result = {
-            'id': edit_todo.id,
-            'title': edit_todo.title,
-            'text': edit_todo.text,
-            'add_task_form': AddTaskForm(instance=edit_todo),
-        }
         return render(request, 'edit_task.html', result)
 
     if request.method == 'POST':
-        edit_todo.title = request.POST.get('title')
-        edit_todo.text = request.POST.get('text')
-        edit_todo.save()
-        return redirect('/todo/')
+        form = AddTaskForm(request.POST)
+        if form.is_valid():
+            edit_todo.title = request.POST.get('title')
+            edit_todo.text = request.POST.get('text')
+            edit_todo.save()
+            return redirect('/todo/')
+
+        form.add_error(None, 'Ошибка в создании задачи')
+        result['add_task_form'] = form
+        return render(request, 'edit_task.html', result)
 
 
 def completed_task(request):

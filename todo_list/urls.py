@@ -7,6 +7,4 @@ urlpatterns = [
     path('edit_task/<int:id_task>/', task.edit_task),
     path('delete_task/<int:id_task>/', task.delete_task),
     path('<slug:id_task>/', task.status),
-
-
 ]

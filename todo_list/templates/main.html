@@ -12,13 +12,21 @@
 
     <div style="background-color: rgba(255, 255, 255, 0.4)">
         <h1>Добавить новую задачу:</h1>
-        <form method="POST" novalidate>
+        <form method="POST">
             {% csrf_token %}
             {% for failed in add_task_form %}
                 <div>
                     {{ failed.label_tag }}
                     {{ failed }}
                 </div>
+
+            {% if failed.errors %}
+                {% for error in failed.errors %}
+                    <div>
+                        {{ error }}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
             {% endfor %}
 
